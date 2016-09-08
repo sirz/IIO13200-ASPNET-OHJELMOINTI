@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Tyontekijat.aspx.cs" Inherits="Tyontekijat" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TyontekijaAamu.aspx.cs" Inherits="Tyontekijat" %>
 
 <!DOCTYPE html>
 
