@@ -1,0 +1,25 @@
+﻿@{ var joku = "Jack Russell";
+    var txtfile = Server.MapPath("~/App_Data/oppilaat.txt");
+    Array oppilaat = File.ReadAllLines(txtfile); 
+    }
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RAZOR</title>
+    </head>
+    <body>
+        <h1>RAZOR, @joku, täältä @DateTime.Today.ToShortDateString() tähän oppilaita</h1>
+        <div id="asd"
+             <p>
+                 @{
+                     int i = 0;
+                     foreach (var oppilas in oppilaat)
+                     {
+                         @oppilas <br/>
+                         i++;
+                     }
+                     @: oppilaita oli paikalla @i <br />
+                 }
+             </p>
+    </body>
+</html>
