@@ -24,7 +24,8 @@ namespace JAMK.ICT.Data
 	  dt.Rows.Add("D9876", "Oksanen", "Sofi");
 	return dt;
 	}
-    public static DataTable GetAllStudentsFromSQLServer(string connectionStr, string taulu, out string viesti)
+    public static DataTable GetAllStudentsFromSQLServer
+            (string connectionStr, string taulu, out string viesti)
     {
         // basic principle: connect - execute query - disconnect
         try
@@ -36,9 +37,6 @@ namespace JAMK.ICT.Data
             DataSet ds = new DataSet();
             da.Fill(ds, taulu);
             viesti = "Tiedot haettu onnistuneesti tietokannasta " + myConn.DataSource;
-                //muistin ja yhteyksien hallinnan kannalta voisi olla parempi
-                myConn.Close();
-                myConn = null;
             return ds.Tables[taulu];
         }
         catch (Exception ex)
