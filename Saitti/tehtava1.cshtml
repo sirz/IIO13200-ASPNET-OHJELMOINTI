@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+@{
+    Validation.RequireField("leveys", "leveyden tieto vaaditaan.");
+    Validation.RequireField("korkeus", "korkeuden tieto vaaditaan.");
+    Validation.RequireField("karmipuu", "karmipuun leveys vaaditaan.");
+    Validation.Add("leveys", Validator.Decimal());
+    Validation.Add("korkeus", Validator.Decimal()); //desimaalitarkastus
+    Validation.Add("karmipuu", Validator.Decimal());
+
+    if (IsPost && Validation.IsValid()) //Post- ja validaatioiden läpimenotarkastus
+    {
+        decimal leveys = Request.Form["leveys"].AsDecimal();
+        decimal korkeus = Request.Form["korkeus"].AsDecimal(); //formeista decimal muuttujuksi tiedot
+        decimal karmipuu = Request.Form["karmipuu"].AsDecimal();
+        decimal A = @leveys * @korkeus / 1000000;
+        decimal piiri = (2 * (@leveys + @karmipuu) + 2 * (@korkeus + @karmipuu))/1000;
+        decimal hinta = (( 45/@A ) + ( @piiri * 100) + 150) * 1.3M; //M=represents decimal number
+        //täydellistä koodia
+        <div id="tiedot" class="w3-green w3-btn w3-animate-opacity">
+    <text>
+    Annetut tiedot: <br /> 
+    Leveys: @leveys mm <br /> 
+    Korkeus: @korkeus mm <br />
+    Karmipuun leveys: @karmipuu mm  <br /> <br />
+    Lasketut tiedot: <br />
+    Pinta-ala: @A m2 <br />
+    Piiri: @piiri m <br /> <br />
+    Tarjoushinta: <br /> 
+    Hinta: @hinta.ToString("0.00") € <br />
+    </text>
+</div>
+    }
+
+}
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab|Open+Sans" rel="stylesheet"> 
+    <style> 
+           text, div, form { 
+    font-family: 'Open Sans', cursive; 
+    font-size: 25px;
+    text-align-last: left;
+           }
+
+    </style> 
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css" /> 
+    <body>
+        <title>Tehtävä 1</title> 
+</head>
+<body>
+        <form id="leveys" class="w3-btn w3-amber" method="post"
+            <fieldset>
+                <legend>Ikkunan dimensiot </legend>
+                <div>
+                    <label for="leveys">Leveys : </label>
+                    <input type="number" name="Leveys" value="1200" <p1>mm </p1> 
+                    @Html.ValidationMessage("leveys") 
+                </div>
+                <div>
+                    <label for="korkeus">Korkeus : </label>
+                    <input type="number" name="Korkeus" class="" value="900" <p1>mm </p1> 
+                    @Html.ValidationMessage("korkeus")
+                </div>
+                <div>
+                    <label for="karmipuu">Karmipuu : </label>
+                    <input type="number" name="Karmipuu" value="45" <p1>mm </p1>
+                    @Html.ValidationMessage("karmipuu")
+                </div>
+                <div>
+                   <label>&nbsp;</label>
+                   <input type="submit" value="Submit" class="w3-btn w3-lime" />
+                </div>
+            </fieldset>
+          </form>
+</body>
+</html>
