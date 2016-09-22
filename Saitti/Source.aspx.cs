@@ -47,6 +47,7 @@ public partial class Source : System.Web.UI.Page
         HttpCookie keksi = new HttpCookie("viesti", txtMessage.Text);
         keksi.Expires = DateTime.Now.AddMinutes(15);
         Response.Cookies.Add(keksi);
+        Response.Redirect("Tapa4.aspx");
     }
 
     protected void btnProperty_Click(object sender, EventArgs e)
