@@ -1,14 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Index" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageIP.master" AutoEventWireup="true" CodeFile="IndexMP.aspx.cs" Inherits="Index" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <title>IIO13200 .NET Ohjelmointi</title>
     <link href="CSS/demo.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-    <form id="form1" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="body" Runat="Server">
         <div>
             <h1>IIO13200. NET Ohjelmointi</h1>
             <h2>1.kontaktikerta</h2>
@@ -24,13 +21,12 @@
                 <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/ShowCustomers.aspx">Show WineCustomers</asp:HyperLink>
             </p>
             <h2>To 22.9.2016</h2>
-            <h3>
-                Tiedon välitys sivulta toiselle:</h3>
+            <h3>Tiedon välitys sivulta toiselle:</h3>
             <p>
               <asp:HyperLink ID="HyperLink3" runat="server" 
                   NavigateUrl="~/Source.aspx">Tiedon välitys 6 tapaa</asp:HyperLink>
             </p>
+            <h2>To 29.9.2016</h2>
+            <a href="FordMustangIP.aspx">Osta poika Musse</a>
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>
