@@ -34,12 +34,12 @@ namespace JAMK.ICT.BL
     }
     public List<Oppilas> Hae3TestiOppilasta()
     {
-      //lisätään kolme keksitty oppilasta
+      //lisätään neljä keksittyä oppilasta
       oppilaat.Add(new Oppilas("Jack", "Daniels"));
       oppilaat.Add(new Oppilas("Jim", "Beam"));
       oppilaat.Add(new Oppilas("Famous", "Grouse"));
-      oppilaat.Add(new Oppilas("Juuh", "Elikkäs"));
-      return oppilaat;
+      oppilaat.Add(new Oppilas("Esa", "Salmikangas"));
+            return oppilaat;
     }
   }
 }

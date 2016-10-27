@@ -1,25 +1,27 @@
-﻿@{ var joku = "Jack Russell";
-    var txtfile = Server.MapPath("~/App_Data/oppilaat.txt");
-    Array oppilaat = File.ReadAllLines(txtfile); 
-    }
+﻿@{ 
+    var joku = "Jack Russell";
+    var txtfilu = Server.MapPath("~/App_Data/Oppilaat20160915.txt");
+    Array oppilaat = File.ReadAllLines(txtfilu);
+}
 <!DOCTYPE html>
 <html>
     <head>
-        <title>RAZOR</title>
+        <title>My First Razor Page</title>
     </head>
     <body>
-        <h1>RAZOR, @joku, täältä @DateTime.Today.ToShortDateString() tähän oppilaita</h1>
-        <div id="asd"
-             <p>
-                 @{
-                     int i = 0;
-                     foreach (var oppilas in oppilaat)
-                     {
-                         @oppilas <br/>
-                         i++;
-                     }
-                     @: oppilaita oli paikalla @i <br />
-                 }
-             </p>
+        <h1>Hello @joku, tässä tänään @DateTime.Today.ToShortDateString() läsnäolevat oppilaat</h1>
+        <div>
+            <p>
+                @{ 
+                    int i = 0;
+                    foreach (var oppilas in oppilaat)
+                    {
+                        @oppilas <br/>
+                        i++;
+                    }
+                    @: oppilaita oli paikalla @i <br/>
+                }
+            </p>
+        </div>
     </body>
 </html>

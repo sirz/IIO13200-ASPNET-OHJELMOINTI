@@ -24,7 +24,8 @@ namespace JAMK.ICT.Data
 	  dt.Rows.Add("D9876", "Oksanen", "Sofi");
 	return dt;
 	}
-    public static DataTable GetAllStudentsFromSQLServer(string connectionStr, string taulu, out string viesti)
+    public static DataTable GetAllStudentsFromSQLServer
+            (string connectionStr, string taulu, out string viesti)
     {
         // basic principle: connect - execute query - disconnect
         try
